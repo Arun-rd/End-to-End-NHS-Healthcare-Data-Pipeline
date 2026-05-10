@@ -188,4 +188,4 @@ See [`docs/powerbi_setup.md`](docs/powerbi_setup.md) for step-by-step instructio
 ## Author
 
 **Arun Kumar Ravi** — BI Developer → Data Engineer  
-[LinkedIn](https://linkedin.com/in/your-profile) · [GitHub](https://github.com/Arun-rd)
+[LinkedIn](https://www.linkedin.com/in/arun-ravi-07/) · [GitHub](https://github.com/Arun-rd)
