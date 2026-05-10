@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: mart_nhs_kpis
+    description: >
+      Final KPI mart for Power BI consumption.
+      One row per NHS trust per month combining A&E performance
+      and bed occupancy metrics.
+    columns:
+      - name: reporting_month
+        description: "Month of reporting (first day of month)"
+        tests:
+          - not_null
+
+      - name: trust_code
+        tests:
+          - not_null
+
+      - name: total_attendances
+        tests:
+          - not_null
+
+      - name: compliance_rate_pct
+        description: "% patients seen within 4 hours — NHS standard is 95%"
+        tests:
+          - not_null
+
+      - name: performance_band
+        tests:
+          - accepted_values:
+              values: ["Green", "Amber", "Red"]
+
+      - name: occupancy_risk_band
+        tests:
+          - accepted_values:
+              values: ["Low risk", "Moderate risk", "High risk"]

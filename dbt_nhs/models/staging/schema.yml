@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: stg_ae_attendances
+    description: "Cleaned and enriched A&E attendances with performance bands"
+    columns:
+      - name: ae_id
+        description: "Primary key from raw table"
+        tests:
+          - unique
+          - not_null
+
+      - name: reporting_month
+        description: "First day of the reporting month"
+        tests:
+          - not_null
+
+      - name: trust_code
+        tests:
+          - not_null
+
+      - name: total_attendances
+        tests:
+          - not_null
+
+      - name: compliance_rate_pct
+        description: "Percentage of patients seen within 4 hours (0–100)"
+        tests:
+          - not_null
+
+      - name: performance_band
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["Green", "Amber", "Red"]
+
+  - name: stg_bed_occupancy
+    description: "Cleaned bed occupancy with NHS risk banding"
+    columns:
+      - name: trust_code
+        tests:
+          - not_null
+
+      - name: quarter_date
+        tests:
+          - not_null
+
+      - name: occupancy_rate_pct
+        tests:
+          - not_null
+
+      - name: occupancy_risk_band
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["Low risk", "Moderate risk", "High risk"]

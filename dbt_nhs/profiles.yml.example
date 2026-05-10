@@ -1,0 +1,15 @@
+# Copy this file to ~/.dbt/profiles.yml and fill in your credentials.
+# Never commit the real profiles.yml — it contains your password.
+
+nhs_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type:     postgres
+      host:     localhost
+      port:     5432
+      user:     postgres
+      password: your_password_here
+      dbname:   nhs_pipeline
+      schema:   public
+      threads:  4

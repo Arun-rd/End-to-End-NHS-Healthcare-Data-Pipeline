@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw NHS England data loaded by the Python ingestion pipeline"
+    database: nhs_pipeline
+    schema: raw
+    tables:
+      - name: ae_attendances
+        description: "Monthly A&E attendances, 4-hour waits, and emergency admissions by trust"
+        columns:
+          - name: id
+            description: "Surrogate key"
+          - name: period_date
+            description: "First day of the reporting month"
+          - name: trust_code
+            description: "NHS trust ODS code"
+          - name: total_attendances
+            description: "Total A&E attendances for the period"
+          - name: seen_within_4hrs
+            description: "Patients seen within the 4-hour standard"
+          - name: compliance_rate_pct
+            description: "Percentage seen within 4 hours"
+
+      - name: bed_occupancy
+        description: "Quarterly NHS bed availability and occupancy by trust"
+        columns:
+          - name: quarter_date
+            description: "First day of the reporting quarter"
+          - name: trust_code
+            description: "NHS trust ODS code"
+          - name: beds_available
+            description: "Total staffed beds available"
+          - name: beds_occupied
+            description: "Beds occupied on the census date"

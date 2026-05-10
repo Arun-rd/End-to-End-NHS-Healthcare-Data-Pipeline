@@ -1,0 +1,21 @@
+name: dbt_nhs
+version: "1.0.0"
+config-version: 2
+
+profile: nhs_pipeline
+
+model-paths:  ["models"]
+test-paths:   ["tests"]
+target-path:  "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  dbt_nhs:
+    staging:
+      +schema:        staging
+      +materialized:  view
+      +tags:          ["staging"]
+    marts:
+      +schema:        marts
+      +materialized:  table
+      +tags:          ["marts"]

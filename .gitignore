@@ -1,0 +1,33 @@
+# Environment
+.env
+
+# Raw and cleaned data (large files, may contain PII)
+data/raw/
+data/clean/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Parquet files
+*.parquet
+
+# dbt
+dbt_nhs/target/
+dbt_nhs/logs/
+dbt_nhs/dbt_packages/
+
+# Power BI (binary, tracked separately)
+*.pbix
+
+# OS
+.DS_Store
+Thumbs.db
